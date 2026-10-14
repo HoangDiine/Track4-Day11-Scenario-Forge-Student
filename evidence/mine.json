@@ -1,0 +1,88 @@
+{
+ "file": "hazard.json",
+ "hazards": [
+  {
+   "x": 210.0,
+   "side": "S",
+   "v": 1.5,
+   "t0": 0.0,
+   "trig": 26.0,
+   "type": "ped"
+  }
+ ],
+ "space": {
+  "h0_x": [
+   190.0,
+   230.0
+  ],
+  "h0_v": [
+   1.2,
+   1.8
+  ],
+  "h0_trig": [
+   20.0,
+   32.0
+  ]
+ },
+ "world": "town",
+ "exposure": 0.03,
+ "why": "Người đi bộ sang đường tự phát (jaywalking) giữa phố từ vỉa hè phía nam (băng qua làn E2 vào làn E1 của xe ta). Theo các nghiên cứu thực địa về hành vi người đi bộ đô thị của FHWA và NHTSA, tần suất chạm trán người băng cắt bất ngờ không trên vạch qua đường tại các tuyến phố thương mại vào khoảng 0.02 - 0.05 lần mỗi chuyến đi (chọn exposure = 0.03). Tốc độ đi bộ của người trưởng thành theo hướng dẫn thiết kế ITE/MUTCD nằm trong dải 1.2 - 1.8 m/s (khoảng h0_v). Khoảng cách kích hoạt h0_trig [20, 32] m mô phỏng người đi bộ bước xuống đường khi thấy khoảng cách chấp nhận được, thử thách khả năng phát hiện sớm và phanh khẩn cấp của planner.",
+ "exact": {
+  "planner": []
+ },
+ "infeasible": 7,
+ "accepted": 0.9953333333333333,
+ "conditional_on": "your town's traffic",
+ "baseline": {
+  "n": 1493,
+  "crashes": 0,
+  "avoidable": 0,
+  "unavoidable": 0,
+  "unattributed": 0,
+  "low_speed": 0,
+  "avoidable_foreknown": 0,
+  "overlap_at_start": 0,
+  "by_hazard": {},
+  "examples": [],
+  "p": 0.0,
+  "lo": 0.0,
+  "hi": 0.0025664706272193393,
+  "per_trip": 0.0,
+  "per_trip_hi": 7.699411881658018e-05
+ },
+ "chosen": {
+  "n": 1493,
+  "crashes": 0,
+  "avoidable": 0,
+  "unavoidable": 0,
+  "unattributed": 0,
+  "low_speed": 0,
+  "avoidable_foreknown": 0,
+  "overlap_at_start": 0,
+  "by_hazard": {},
+  "examples": [],
+  "p": 0.0,
+  "lo": 0.0,
+  "hi": 0.0025664706272193393,
+  "per_trip": 0.0,
+  "per_trip_hi": 7.699411881658018e-05
+ },
+ "_run": {
+  "mssv": "202602751",
+  "town": "B",
+  "quick": false,
+  "step": "mine",
+  "salted": false,
+  "budgets": {
+   "replay_n": 400,
+   "mc_n": 3000,
+   "iters": 8,
+   "per_iter": 300,
+   "final_n": 600,
+   "seeds": 3,
+   "fix_n": 400,
+   "progress_n": 256,
+   "mine_n": 1500
+  }
+ }
+}

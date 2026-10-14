@@ -1,0 +1,32 @@
+{
+  "format": "avsim-studio/1",
+  "params": {
+    "civil": true,
+    "cutGap": 12.0,
+    "pedGap": 4.5,
+    "pedLook": 1,
+    "cutT0": 6.5,
+    "pedT0": 11.0,
+    "busGo": 17.0
+  },
+  "policy": {},
+  "hazards": [
+    {
+      "type": "ped",
+      "x": 210.0,
+      "side": "S",
+      "v": 1.5,
+      "t0": 0.0,
+      "trig": 26.0
+    }
+  ],
+  "ego": "planner",
+  "space": {
+    "h0_x": [190.0, 230.0],
+    "h0_v": [1.2, 1.8],
+    "h0_trig": [20.0, 32.0]
+  },
+  "exposure": 0.03,
+  "why": "Người đi bộ sang đường tự phát (jaywalking) giữa phố từ vỉa hè phía nam (băng qua làn E2 vào làn E1 của xe ta). Theo các nghiên cứu thực địa về hành vi người đi bộ đô thị của FHWA và NHTSA, tần suất chạm trán người băng cắt bất ngờ không trên vạch qua đường tại các tuyến phố thương mại vào khoảng 0.02 - 0.05 lần mỗi chuyến đi (chọn exposure = 0.03). Tốc độ đi bộ của người trưởng thành theo hướng dẫn thiết kế ITE/MUTCD nằm trong dải 1.2 - 1.8 m/s (khoảng h0_v). Khoảng cách kích hoạt h0_trig [20, 32] m mô phỏng người đi bộ bước xuống đường khi thấy khoảng cách chấp nhận được, thử thách khả năng phát hiện sớm và phanh khẩn cấp của planner."
+}
+

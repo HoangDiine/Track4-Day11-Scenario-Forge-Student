@@ -20,7 +20,24 @@ def cem_update(Z, Bn, score, prev: dict, rho: float = 0.1, smooth: float = 0.7, 
       level = the lowest score inside the elite (how dangerous the elite already is)
 
     Why the floors: a std that collapses to 0 or a probability of exactly 0/1 makes importance weights explode."""
-    raise NotImplementedError("TODO 5: cem_update")
+    n = len(score)
+    n_elite = max(2, math.ceil(rho * n))
+    idx = np.argsort(-score, kind="stable")[:n_elite]
+
+    elite_Z = Z[idx]
+    elite_Bn = Bn[idx]
+    elite_score = score[idx]
+
+    elite_mean = np.mean(elite_Z, axis=0)
+    elite_std = np.std(elite_Z, axis=0)
+    elite_freq = np.mean(elite_Bn, axis=0)
+
+    new_mean = smooth * elite_mean + (1.0 - smooth) * prev["mean"]
+    new_std = np.maximum(min_std, smooth * elite_std + (1.0 - smooth) * prev["std"])
+    new_p_bin = np.clip(smooth * elite_freq + (1.0 - smooth) * prev["p_bin"], p_clip[0], p_clip[1])
+    level = float(elite_score.min())
+
+    return dict(mean=new_mean, std=new_std, p_bin=new_p_bin, level=level)
 
 
 # ---------------------------------------------------------------- given
